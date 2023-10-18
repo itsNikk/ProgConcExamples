@@ -1,7 +1,5 @@
 package PoolOfResources;
 
-import java.util.Arrays;
-
 public class ResourceManager {
 
     private final int NUM_RESOURCES;
@@ -14,7 +12,7 @@ public class ResourceManager {
         NUM_RESOURCES = numResources;
         available = NUM_RESOURCES;
         resources = new boolean[NUM_RESOURCES];
-        //This specific for loop can be also done via Arrays.fill(resources, true);
+        //PRO TIP: This specific for loop, or any that have this shape, can also be written as 'Arrays.fill(resources, true);'
         for (int i = 0; i < resources.length; i++) resources[i] = true;
     }
 

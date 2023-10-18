@@ -15,12 +15,15 @@ public class ResourceThread extends Thread {
     public void run() {
         for (int i = 0; i < TIMES; i++) {
             try {
+                //lemme try to get a resource....
                 int resource = manager.request();
+                //if I obtain it, lemme hold it for a while...
                 sleep((long) (Math.random() * 1000));
+                //and then I release it...
                 manager.release(resource);
             } catch (InterruptedException e) {
                 System.out.println(getName() + " interrupted");
-                //maybe we could do something useful here this time...
+                //maybe we could do something more useful to handle the exception this time...
             }
         }
     }
