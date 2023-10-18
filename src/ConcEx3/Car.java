@@ -15,9 +15,13 @@ public class Car extends Thread {
     @Override
     public void run() {
         try {
+            //the car drives for some time...
             drive(500, 1000);
+            //then, the car attempt to enter the parking lot...
             enterParkingLot();
+            //if ti succeed, it'll stay inside the parking lot for some time...
             stayInParkingLot(2000, 4000);
+            //and finally, it'll leave the parking lot.
             exitParkingLot();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
