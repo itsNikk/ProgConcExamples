@@ -1,10 +1,10 @@
 package ConcEx3;
 
 /**
- * @author nikBu
+ * @author iTzNikk
  * This class is the MONITOR class of the exercise.
  * To manage the slots I just used an int variable because, to me, it's the easiest way to shape the concept of
- * "Having a certain number of slots". I am not really interested in managing the real car objects inside the lot.
+ * "Having a certain number of slots". I am not really interested, for now, in managing the real car objects inside the lot.
  */
 public class ParkingLot {
 
@@ -15,7 +15,7 @@ public class ParkingLot {
     }
 
     /**
-     * This method mangaes the entering action of a car.
+     * This method manages the entering action of a car.
      * If the parking lot does NOT have any slot left, it will put the car in wait state,
      * Otherwise it'll reduce the available slots number by one.
      * @throws InterruptedException
