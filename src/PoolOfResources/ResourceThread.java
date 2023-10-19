@@ -14,16 +14,19 @@ public class ResourceThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < TIMES; i++) {
+            int resource = -1;
             try {
                 //lemme try to get a resource....
-                int resource = manager.request();
+                resource = manager.request();
                 //if I obtain it, lemme hold it for a while...
                 sleep(500 + (long) (Math.random() * 1000));
                 //and then I release it...
                 manager.release(resource);
             } catch (InterruptedException e) {
-                System.out.println(getName() + " interrupted");
-                //maybe we could do something more useful to handle the exception this time...
+                System.out.println(getName() + " interrupted.");
+                //This check is actually not that necessary but still... ;)
+                // (WHY is this check not that important?)
+                if (resource >= 0) manager.release(resource);
             }
         }
     }
