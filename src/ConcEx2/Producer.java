@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Producer extends Thread {
 
-    public static final int BOUND = 10;
+    private final int BOUND = 10;
     private final Buffer b;
 
     public Producer(Buffer b) {
