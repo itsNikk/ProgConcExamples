@@ -10,9 +10,6 @@ public class Buffer {
         while (dataReady) wait();
         this.value = value;
         dataReady = true;
-        //se val in range c1 sveglia i c1
-        if (value >= 1 && value <= 5) Main.smallSem.release();
-        // se val in range c2 sveglia i c2
         notifyAll();
     }
 

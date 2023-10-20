@@ -4,8 +4,6 @@ import java.util.concurrent.Semaphore;
 
 public class Main {
 
-    public static Semaphore smallSem = new Semaphore(1);
-    public static Semaphore bigSem = new Semaphore(1);
 
     public static void main(String[] args) throws InterruptedException {
         Buffer b = new Buffer();
