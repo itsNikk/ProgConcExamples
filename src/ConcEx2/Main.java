@@ -1,22 +1,21 @@
 package ConcEx2;
 
-import java.util.concurrent.Semaphore;
 
 public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-        Buffer b = new Buffer();
-        Producer producer = new Producer(b);
+        Buffer buffer = new Buffer();
+
+        Producer producer = new Producer(buffer);
+        SmallConsumer consumer1 = new SmallConsumer("SC", buffer);
+        BigConsumer consumer2 = new BigConsumer("BC", buffer);
+
         producer.start();
-
-        SmallConsumer sc = new SmallConsumer("SC", b);
-        sc.start();
-
-
-        BigConsumer bc = new BigConsumer("BC", b);
-        bc.start();
-
+        consumer1.start();
+        consumer2.start();
         producer.join();
+        consumer2.interrupt();
+        consumer1.interrupt();
     }
 }

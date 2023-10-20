@@ -13,12 +13,10 @@ public class BigConsumer extends Thread {
     public void run() {
         while (true) {
             try {
-                int takenValue = b.get();
-                if (takenValue >= 6 && takenValue <= 10) {
-                    System.out.println(getName() + ": " + takenValue);
-                }
+                int takenValue = b.consume(6, 10);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                System.out.println(getName() + " è stato interrotto e termina.");
+                break;
             }
         }
     }

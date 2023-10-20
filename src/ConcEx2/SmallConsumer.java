@@ -10,14 +10,12 @@ public class SmallConsumer extends Thread {
 
     @Override
     public void run() {
-        for (;;) {
+        while (true) {
             try {
-                int value = b.get();
-                if (value >= 1 && value <= 5) {
-                    System.out.println(getName() + ": " + value);
-                }
+                int value = b.consume(1, 5);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                System.out.println(getName() + " è stato interrotto e termina.");
+                break;
             }
         }
     }

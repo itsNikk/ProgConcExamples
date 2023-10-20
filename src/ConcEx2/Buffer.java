@@ -2,21 +2,25 @@ package ConcEx2;
 
 public class Buffer {
 
-
     private int value;
-    private boolean dataReady;
+    private boolean isProducing;
 
-    public synchronized void put(int value) throws InterruptedException {
-        while (dataReady) wait();
-        this.value = value;
-        dataReady = true;
+    public synchronized void produce(int num) throws InterruptedException {
+        while (isProducing) wait();
+
+        value = num;
+        isProducing = true;
+        System.out.println("Produttore ha prodotto: " + num);
         notifyAll();
     }
 
-    public synchronized int get() throws InterruptedException {
-        while (!dataReady) wait();
-        dataReady = false;
+    public synchronized int consume(int min, int max) throws InterruptedException {
+        while (!isProducing || value < min || value > max) wait();
+
+        int consumedValue = value;
+        isProducing = false;
+        System.out.println(Thread.currentThread().getName() + " ha consumato: " + consumedValue);
         notifyAll();
-        return value;
+        return consumedValue;
     }
 }
