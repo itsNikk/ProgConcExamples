@@ -1,7 +1,10 @@
 package ClassiQuarte.AI.SynchIntro;
 
+import java.util.concurrent.Semaphore;
+
 public class AdderThread extends Thread {
     private Counter counter;
+
 
     public AdderThread(Counter counter) {
         this.counter = counter;
@@ -10,7 +13,12 @@ public class AdderThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 10000; i++) {
-            counter.add(1);
+            try {
+                counter.add(1);
+            } catch (InterruptedException e) {
+                System.out.println(getName() + " interrotto.");
+                break;
+            }
         }
     }
 }
