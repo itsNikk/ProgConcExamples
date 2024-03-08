@@ -13,6 +13,10 @@ public class Counter {
         //sem.release();
     }
 
+    public void subtract(){
+
+    }
+
     public long getCount() {
         return count;
     }
