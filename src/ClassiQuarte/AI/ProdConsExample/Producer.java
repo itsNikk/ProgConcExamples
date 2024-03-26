@@ -4,7 +4,8 @@ public class Producer extends Thread {
 
     private CellaCondivisa cella;
 
-    public Producer(CellaCondivisa cella) {
+    public Producer(String name, CellaCondivisa cella) {
+        super(name);
         this.cella = cella;
     }
 
