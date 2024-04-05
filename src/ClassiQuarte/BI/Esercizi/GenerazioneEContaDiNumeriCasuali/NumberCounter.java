@@ -11,11 +11,11 @@ public class NumberCounter extends Thread {
     @Override
     public void run() {
         int count = 0;
-        int foo = 0;
+        int lastNumber = 0;
         while (true) {
-            int current = generator.getGeneratedNumber();
-            if (current != foo) {
-                foo = current;
+            int numberFromGeneratorThread = generator.getGeneratedNumber();
+            if (numberFromGeneratorThread != lastNumber) {
+                lastNumber = numberFromGeneratorThread;
                 count++;
                 System.out.println("Numeri contati: " + count);
             }
