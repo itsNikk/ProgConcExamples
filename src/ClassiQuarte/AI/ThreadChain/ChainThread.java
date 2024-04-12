@@ -24,7 +24,10 @@ public class ChainThread extends Thread {
             System.out.println(getName());
             for (int i = 0; i < 10; i++) {
                 System.out.println(i);
+                sleep(500);
             }
+            /* V3: Bonus */
+
         } catch (InterruptedException e) {
             System.out.println(getName() + " interrotto.");
         }
