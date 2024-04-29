@@ -16,4 +16,12 @@ public class Museum {
         System.out.println("Qualcuno è entrato. " +
                 "Persone all'interno: " + touristsInside);
     }
+
+    public synchronized void exit() {
+        touristsInside--;
+        System.out.println("Qualcuno è uscito. Persone all'interno: " + touristsInside);
+        notifyAll();
+    }
+
+
 }

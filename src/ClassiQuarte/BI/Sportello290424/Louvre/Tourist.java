@@ -18,6 +18,10 @@ public class Tourist extends Thread {
             System.out.println(getName() + " aspetta un po'...");
             //2) cerco di entrare nel museo
             museum.enter();
+            //3) Guardo il quadro per un po'
+            sleep((int) (Math.random() * (500 - 200)) + 200);
+            //4) esco
+            museum.exit();
         } catch (InterruptedException e) {
             System.out.println(getName() + " interrotto.");
         }

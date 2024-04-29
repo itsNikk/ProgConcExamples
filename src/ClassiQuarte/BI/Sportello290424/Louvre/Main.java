@@ -12,10 +12,12 @@ public class Main {
             tourists.add(new Tourist("Tourist#" + (i + 1), museum));
         }
 
+        //Faccio partire tutti i Threads
         for (int i = 0; i < tourists.size(); i++) {
             tourists.get(i).start();
         }
 
+        //Io main aspetto tutti i thread
         for (int i = 0; i < tourists.size(); i++) {
             tourists.get(i).join();
         }
