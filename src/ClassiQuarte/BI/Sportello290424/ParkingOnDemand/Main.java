@@ -11,6 +11,7 @@ public class Main {
 
         final int NUM_THREADS = 10;
         ArrayList<Auto> autos = new ArrayList<>();
+
         for (int i = 0; i < NUM_THREADS; i++) {
             autos.add(new Auto("Auto#" + (i + 1), (int) (Math.random() * (MAX_CAPACITY - 1)) + 1, parkingLot));
         }
