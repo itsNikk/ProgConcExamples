@@ -18,10 +18,10 @@ public class Buyer extends Thread {
         try {
             sleep(random.nextInt(3000));
             ticketCounter.arriveAtCounter(this);
-            sleep(random.nextInt(2500));
+            sleep(random.nextInt(5));
             ticketCounter.leaveCounter();
         } catch (InterruptedException e) {
-            System.out.println(getName() + " interrotto");
+            System.out.println(getName() + " interrotto. Non ci sono più biglietti.");
         }
     }
 }

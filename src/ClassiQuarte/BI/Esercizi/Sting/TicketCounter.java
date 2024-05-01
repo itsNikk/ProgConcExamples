@@ -9,14 +9,17 @@ public class TicketCounter {
     }
 
     public synchronized void arriveAtCounter(Buyer buyer) throws InterruptedException {
+
+        if (availableTickets <= 0) buyer.interrupt();
+
         while (buyersAtCounter >= 5) {
             System.out.println(buyer.getName() + " attende perchè c'è troppa gente al baracchino. Clienti: " + buyersAtCounter);
             wait();
         }
         buyersAtCounter++;
         if (availableTickets > 0) {
-            System.out.println(buyer.getName() + " got a ticket. Remaining tickets: " + availableTickets);
             availableTickets--;
+            System.out.println(buyer.getName() + " got a ticket. Remaining tickets: " + availableTickets);
         } else buyer.interrupt();
     }
 
