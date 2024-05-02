@@ -15,6 +15,7 @@ public class Main {
         for (int i = 0; i < vehicles.size(); i++) {
             vehicles.get(i).start();
         }
+
         for (int i = 0; i < vehicles.size(); i++) {
             vehicles.get(i).join();
         }
